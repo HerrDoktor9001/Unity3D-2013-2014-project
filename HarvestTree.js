@@ -28,6 +28,7 @@ Instantiated = false;
 
 }
 
+//aug. 2024: notes to younger self: geez! outrageous code! if 'ShowText' should always be same as 'CanGiveFood', simply equalize them: "ShowText = CanGiveFood"
 if (!CanGiveFood){
 
 ShowText = false;
