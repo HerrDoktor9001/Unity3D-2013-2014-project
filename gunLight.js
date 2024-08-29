@@ -36,3 +36,24 @@ function Update () {
 	}
 	else{Light.GetComponent.<Light>().enabled=false;}
 }
+
+
+// aug. 2024: notes to younger self: simplify code!
+// if 'k' is constant, declare it instead of filling it: private var k: float = 0.45; <- no need for 'Start()' function.
+
+// instead of filling a variable, "tonemapIntensity()" function should be a function variable (possible in .js?):
+// float function tonemapIntensity(){ return Tonemap.middleGray; }.
+// Instead of using 'toneInt' in 'lightIntensity()' func., we call 'tonemapIntensity()' itself, which returns desired float value.
+
+// instead of using 'if' conditional statements, we can simply set our variable via a bool:
+// 1st, set a bool function:
+	// bool function bPlayerInLight(){ return script.playerIsInLight; }
+// 2nd, tie our desired external variable to our bool:
+	// Light.GetComponent.<Light>().enabled = bPlayerInLight();
+
+// now 'Update()' should look someting like:
+// function Update() {
+// 	lightIntensity();
+// 	Light.GetComponent.<Light>().enabled = bPlayerInLight();
+//}
+// .: much cleaner, less verbose, less wasted code...
